@@ -7,8 +7,8 @@ from django.views.i18n import set_language
 
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
-
-
+from mezzanine.blog import views
+from mezzanine import pages
 admin.autodiscover()
 
 # Add the urlpatterns for any custom Django applications here.
@@ -53,7 +53,7 @@ urlpatterns += [
     # should be used if you want to customize the homepage's template.
     # NOTE: Don't forget to import the view function too!
 
-    # url("^$", mezzanine.pages.views.page, {"slug": "/"}, name="home"),
+    url("^$", pages.views.page, {"slug": "/"}, name="home"),
 
     # HOMEPAGE FOR A BLOG-ONLY SITE
     # -----------------------------
@@ -64,7 +64,7 @@ urlpatterns += [
     # page tree in the admin if it was installed.
     # NOTE: Don't forget to import the view function too!
 
-    # url("^$", mezzanine.blog.views.blog_post_list, name="home"),
+    url("^$", views.blog_post_list, name="home"),
 
     # MEZZANINE'S URLS
     # ----------------

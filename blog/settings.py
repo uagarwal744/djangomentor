@@ -85,6 +85,8 @@ from django.utils.translation import ugettext_lazy as _
 # If True, the django-modeltranslation will be added to the
 # INSTALLED_APPS setting.
 
+#BLOG_SLUG=""
+
 USE_MODELTRANSLATION = False
 
 '''EXTRA_MODEL_FIELDS = (
@@ -208,7 +210,7 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
 # Package/module name to import the root urlpatterns from for the project.
 ROOT_URLCONF = "%s.urls" % PROJECT_APP
 
-STATICFILES_DIRS = ('/home/vagrant/mentordjango/mentorship/blog/static/',)
+STATICFILES_DIRS = ('/home/vagrant/mentordjango/mentorship/blog/assets/',)
 
 STATICFILES_FINDERS = (
 	'django.contrib.staticfiles.finders.FileSystemFinder',
