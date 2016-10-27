@@ -3,6 +3,8 @@
 
 {% block meta_title %}{{ title }}{% endblock %}
 {% block title %}{{ title }}{% endblock %}
+{% block meta_type %}{{ type }}{% endblock %}
+{% block type %}{{ type }}{% endblock %}
 {% block body_id %}account{% endblock %}
 
 {% block breadcrumb_menu %}
@@ -17,10 +19,95 @@
 <form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
     <fieldset>
     <legend>{{ title }}</legend>
+	{% if title == "Sign up" %}
+         <b> I am a: &nbsp;</b>
+         <input type="radio" name="person" value="Alumni" >Alumni
+         <input type="radio" name="person" value="Student">Student
+         <br><br>
+
+        <select name='department'  >
+					<option value='0'>Select Your Department</option>
+					<option value="AE">Aerospace Engineering</option>
+					<option value="AG">Agricultural & Food Engineering</option>
+					<option value="AR">Architecture & Regional Planning</option>
+					<option value="BT">Biotechnology</option>
+					<option value="CE">Civil Engineering</option>
+					<option value="CH">Chemical Engineering</option>
+					<option value="CS">Computer Science & Engineering</option>
+					<option value="CY">Chemistry</option>
+					<option value="EE">Electrical Engineering</option>
+					<option value="EC">Electronics & Electrical Communication Engineering</option>
+					<option value="GG">Geology & Geophysics</option>
+					<option value="HS">Humanities & Social Sciences</option>
+					<option value="IM">Industrial & Systems Engineering</option>
+					<option value="MA">Mathematics</option>
+					<option value="ME">Mechanical Engineering</option>
+					<option value="MT">Metallurgical & Materials Engineering</option>
+					<option value="MI">Mining Engineering</option>
+					<option value="NA">Ocean Engineering & Naval Architecture</option>
+					<option value="PH">Physics</option>
+					<option value="ATDC">Advanced Techology Development Center</option>
+					<option value="CET">Center for Educational Technology</option>
+					<option value="CYE">Cryogenic Engineering</option>
+					<option value="MS">Materials Science</option>
+					<option value="ORALS">Oceans, Rivers, Atmosphere and Land Sciences</option>
+					<option value="CBE">P K Sinha Centre for Bio Energy</option>
+					<option value="REC">Reliability Engineering Centre</option>
+					<option value="RTC">Rubber Technology Centre</option>
+					<option value="RDC">Rural Development Centre</option>
+					<option value="GSSST">G S Sanyal School of Telecommunications</option>
+					<option value="IT">Information Technology</option>
+					<option value="RMSEE">Rajendra Mishra School of Engineering Entrepreneurship</option>
+					<option value="RGSIPL">Rajiv Gandhi School of Intellectual Property Law</option>
+					<option value="MST">Medical Science & Technology</option>
+					<option value="SB">School of Bioscience</option>
+					<option value="SEST">School of Environment Science and Technology</option>
+					<option value="SES">School of Energy Science</option>
+					<option value="SNST">School of Nano-Science and Technology</option>
+					<option value="SWS">School of Water Resources</option>
+					<option value="VGSOM">Vinod Gupta School of Management</option>
+            </select>
+        <br><br>
+
+           <select name='hall' class='form-control'>
+					<option value='0'>Select Your Hall</option>
+					<option value="SAM">Ashutosh Mukherjee  Hall</option>
+					<option value="AZ">Azad  Hall</option>
+					<option value="BCR">B C Roy  Hall</option>
+					<option value="BRAH">B R Ambedkar  Hall</option>
+					<option value="GH">Gokhale  Hall</option>
+					<option value="HJB">Homi Bhabha  Hall</option>
+					<option value="JCB">J C Bose  Hall</option>
+					<option value="LLR">Lala Lajpat Rai  Hall</option>
+					<option value="LBS">Lalbahadur Sastry  Hall</option>
+					<option value="MMM">Madan Mohan Malviya  Hall</option>
+					<option value="MS">Megnad Saha  Hall</option>
+					<option value="MT">Mother Teresa  Hall</option>
+					<option value="NH">Nehru  Hall</option>
+					<option value="PT">Patel  Hall</option>
+					<option value="RK">Radha Krishnan  Hall</option>
+					<option value="RP">Rajendra Prasad  Hall</option>
+					<option value="RLB">Rani Laxmibai  Hall</option>
+					<option value="SN">Sarojini Naidu / Indira Gandhi  Hall</option>
+					<option value="VS">Vidyasagar  Hall</option>
+					<option value="ZH">Zakir Hussain  Hall</option>
+				</select>
+         <br>
+         <b>Year of Graduation:</b><br>
+         <input type="int" name="year_grad"><br><br>
+		 <b> Your Phone No:</b><br>
+		 <input type="int" name="phone_no"><br><br>
+
+        {% endif %}
     {% fields_for form %}
+	{{ type }}
     <div class="form-actions">
+
         {% block account_form_actions %}
+
+
         <input class="btn btn-primary btn-lg pull-right" type="submit" value="{{ title }}">
+
         {% endblock %}
     </div>
     </fieldset>
